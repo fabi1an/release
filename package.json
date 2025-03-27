@@ -1,0 +1,29 @@
+{
+  "name": "root",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "pnpm --stream --filter launcher... run build",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "eslint": "^9.23.0"
+  },
+  "devDependencies": {
+    "@ntnyq/eslint-config": "^4.0.2",
+    "@ntnyq/prettier-config": "^2.0.0",
+    "eslint-plugin-format": "^1.0.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "@electron/get": "^4.0.0"
+    },
+    "onlyBuiltDependencies": [
+      "electron",
+      "esbuild"
+    ]
+  }
+}

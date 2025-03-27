@@ -1,0 +1,27 @@
+{
+  "name": "launcher",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./dist/build/main.cjs",
+  "author": {
+    "name": "lazuee"
+  },
+  "scripts": {
+    "build": "pnpm dlx tsx ./build.ts",
+    "postinstall": "electron-builder install-app-deps",
+    "preinstall": "npx only-allow pnpm",
+    "start": "pnpm build && electron ."
+  },
+  "dependencies": {
+    "deepmerge-ts": "^7.1.5",
+    "nw-flash-trust": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "electron": "22.3.27",
+    "electron-builder": "^25.1.8",
+    "rollup-plugin-inject-process-env": "^1.3.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.3"
+  }
+}

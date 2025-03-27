@@ -3,6 +3,9 @@ image:
 
 tasks:
   - init: |
-      echo "export ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder" >> ~/.bashrc
-      echo "export ELECTRON_CACHE=$HOME/.cache/electron" >> ~/.bashrc
+      echo "export ELECTRON_BUILDER_CACHE=\"\$HOME/.cache/electron-builder\"" >> ~/.bashrc
+      echo "export ELECTRON_CACHE=\"\$HOME/.cache/electron\"" >> ~/.bashrc
       echo "export ELECTRON_SKIP_BINARY_DOWNLOAD=1" >> ~/.bashrc
+      echo "export ELECTRON_MIRROR=\"https://github.com/Alex313031/electron-22/releases/download/v\"" >> ~/.bashrc
+      source ~/.bashrc
+      clear

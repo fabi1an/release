@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --background-color: rgb(12, 12, 14);
+        --font-color: white;
+        --border-color: rgba(255, 255, 255, 0.12);
+        --accent: rgb(1, 231, 148);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        padding: 16px;
+        background-color: transparent;
+        font-family: "Pretendard", sans-serif;
+        user-select: none;
+      }
+
+      .wrapper {
+        display: flex;
+        position: relative;
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        -webkit-app-region: drag;
+        overflow: hidden;
+        border-radius: 22px;
+        background: var(--background-color);
+        background-image: url("../resources/splash.png");
+        background-position: center;
+        background-size: cover;
+        box-shadow:
+          rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+          rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+        color: var(--font-color);
+        text-align: center;
+      }
+
+      .wrapper::before {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(12, 12, 14, 0) 50%, rgba(12, 12, 14, 0.85) 80%, rgb(12, 12, 14) 100%);
+        box-shadow:
+          rgba(12, 12, 14, 0.3) 0px 30px 60px -12px inset,
+          rgba(12, 12, 14, 0.4) 0px 18px 36px -18px inset;
+        content: " ";
+      }
+
+      .logo {
+        position: relative;
+        top: -10px;
+        left: -10px;
+        width: auto;
+        height: 86px;
+        image-rendering: optimizeQuality;
+      }
+
+      .loader {
+        display: flex;
+        z-index: 10;
+        position: relative;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .loader p {
+        font-size: 0.9rem;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.5;
+        }
+      }
+
+      .dot {
+        font-size: 1.2rem;
+        animation: blink 1.5s infinite;
+      }
+
+      .dot:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .dot:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .dot:nth-child(3) {
+        animation-delay: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          z-index: 2;
+          justify-content: space-between;
+          align-items: flex-start;
+        ">
+        <img class="logo" draggable="false" src="../resources/logo.png" alt="logo" />
+        <img draggable="false" src="../resources/hero.png" style="position: absolute; top: -50px; left: -500px; transform: scaleX(-1)" />
+        <div class="loader">
+          <p id="loading">loading client <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></p>
+          <p id="starting" style="display: none">preparing game <span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
