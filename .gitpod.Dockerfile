@@ -18,10 +18,6 @@ RUN apt-get update \
 
 USER gitpod
 
-ENV ELECTRON_BUILDER_CACHE=/home/gitpod/.cache/electron-builder \
-    ELECTRON_CACHE=/home/gitpod/.cache/electron \
-    ELECTRON_SKIP_BINARY_DOWNLOAD=1
-
 RUN bash -c "\
     source /home/gitpod/.nvm/nvm.sh && \
     nvm install --lts && \
